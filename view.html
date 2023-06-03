@@ -27,8 +27,6 @@
       style="white-space: nowrap"
     >
       Log Out</a>
-
-      
 </div>
 </div>
 <div class="container mt-3 text-center">
@@ -56,10 +54,6 @@
 
 </div>
 <script type="module">
-
-  
-
-  
 // ---------------- FILLING THE TABLE -----------------------------------------------------//
 
  var OrdNo = 0;
@@ -67,16 +61,16 @@
 
  function AddItemToTable ( date, dressid, fullname, address, mobileno, color, size, returnby, status) {
     let trow = document.createElement("trow");
-    let td1 = documeny.createElement('td');
-    let td2 = documeny.createElement('td');
-    let td3 = documeny.createElement('td');
-    let td4 = documeny.createElement('td');
-    let td5 = documeny.createElement('td');
-    let td6 = documeny.createElement('td');
-    let td7 = documeny.createElement('td');
-    let td8 = documeny.createElement('td');
-    let td9 = documeny.createElement('td');
-    let td10 = documeny.createElement('td');
+    let td1 = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    let td4 = document.createElement('td');
+    let td5 = document.createElement('td');
+    let td6 = document.createElement('td');
+    let td7 = document.createElement('td');
+    let td8 = document.createElement('td');
+    let td9 = document.createElement('td');
+    let td10 = document.createElement('td');
 
     td1.innerHTML = ++OrdNo
     td2.innerHTML = date;
@@ -112,7 +106,7 @@
             element.DressID,
             element.FullName,
             element.Address,
-            element.Mobileno, 
+            element.MobileNo, 
             element.Color,
             element.Size,
             element.ReturnBy,
@@ -124,11 +118,8 @@
     }
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
+    const firebaseConfig = {
     apiKey: "AIzaSyCJf4rVDj2fiURRaDmjpq3f-J7TX_gxBwo",
     authDomain: "logindressrental.firebaseapp.com",
     databaseURL: "https://logindressrental-default-rtdb.firebaseio.com",
@@ -138,36 +129,36 @@
     appId: "1:416669143420:web:64e6a2cbf84bdb505894f9"
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  import { getDatabase, ref, child, onValue, get, }
-   from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+const app = initializeApp(firebaseConfig);
 
-   const db = getDatabase();
+import {
+  getDatabase,
+  ref,
+  child,
+  onValue,
+  get,
+} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
 
-     function GetAllDataRealtime() {
-    const dbRef = ref (db,"DressRental");
+const db = getDatabase();
 
+      function GetAllDataRealtime() {
+        const dbRef = ref(db, "DressRental");
 
-    onValue(dbRef,(snapshot)=>{
+        onValue(dbRef, (snapshot) => {
+          var dress = [];
 
-        var dress=[];
-        snapshot.forEach(childSnapshot => {
+          snapshot.forEach((childSnapshot) => {
             dress.push(childSnapshot.val());
+          });
 
+          AddAllItemsToTable(dress);
         });
+      }
 
-AddAllItemsToTable(dress);
-
-
-    })
-
-    
-
-}
-
-     
-window.onload = GetAllDataRealtime;
+      window.onload = GetAllDataRealtime;
+    </script>
+  </body>
+</html>
 
 
 
