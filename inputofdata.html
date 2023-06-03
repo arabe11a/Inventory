@@ -117,6 +117,8 @@
           <button type="button" class="btn btn-info fw-bold" id="Selbtn">SELECT</button>
           <button type="button" class="btn btn-info fw-bold" id="Updbtn">UPDATE</button>
           <button type="button" class="btn btn-info fw-bold" id="Delbtn">DELETE</button>
+          <a  href="view.html" class="btn btn-info fw-bold" id="viewbtn" style="white-space: nowrap"     >
+           VIEW ALL DATA</a>
         </div>
 
     
@@ -140,14 +142,14 @@
     
       // Your web app's Firebase configuration
       const firebaseConfig = {
-        apiKey: "AIzaSyBRFZS4OFJS-hAbmT9Qp7OxX5TH-_YhaGk",
-        authDomain: "crud-e4c97.firebaseapp.com",
-        databaseURL: "https://crud-e4c97-default-rtdb.firebaseio.com",
-        projectId: "crud-e4c97",
-        storageBucket: "crud-e4c97.appspot.com",
-        messagingSenderId: "309113954517",
-        appId: "1:309113954517:web:f579a55e21ae2d0c8b425c"
-      };
+          apiKey: "AIzaSyCJf4rVDj2fiURRaDmjpq3f-J7TX_gxBwo",
+          authDomain: "logindressrental.firebaseapp.com",
+          databaseURL: "https://logindressrental-default-rtdb.firebaseio.com",
+          projectId: "logindressrental",
+          storageBucket: "logindressrental.appspot.com",
+          messagingSenderId: "416669143420",
+          appId: "1:416669143420:web:64e6a2cbf84bdb505894f9"
+        };
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
@@ -160,6 +162,7 @@
         // references
 
         var rollbox = document.getElementById("Rollbox");
+        var dressidbox = document.getElementById("Rollbox");
         var fullnamebox = document.getElementById("Fullnamebox");
         var addressbox = document.getElementById("Addressbox");
         var mobilebox = document.getElementById("Mobilebox");
@@ -178,7 +181,7 @@
 
         function InsertData(){
             set(ref(db, "DressRental/"+ rollbox.value),{
-                RollNo: rollbox.value,
+                DressID: dressidbox.value,
                 FullName: fullnamebox.value,
                 Address: addressbox.value,
                 MobileNo: mobilebox.value,
@@ -204,6 +207,7 @@
       
           get(child(dbref, "DressRental/"+ rollbox.value)).then((snapshot)=>{
               if (snapshot.exists ()){
+                    dressidbox.value = snapshot.val().DressID;
                     fullnamebox.value = snapshot.val().FullName;
                     addressbox.value = snapshot.val().Address;
                     mobilebox.value = snapshot.val().MobileNo;
@@ -228,6 +232,7 @@
 
       function UpdateData(){
             update(ref(db, "DressRental/"+ rollbox.value),{
+                DressID: dressidbox.value,
                 FullName: fullnamebox.value,
                 Address: addressbox.value,
                 MobileNo: mobilebox.value,
