@@ -10,12 +10,44 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <title>Dress Rental</title>
+    <section>
+    <style>
+      body {
+        background-image: url("serenitybg50.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        
+        
+      }
+      
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playball&display=swap" rel="stylesheet">
+
+<style>
+  body {
+font-family: 'Playball', cursive; }
+
+h5 {
+        font-family: 'Roboto', sans-serif;
+      }
+
+</style>
+
+    <title>SDR-Registration</title>
   </head>
   <body>
 </div>
 </div>
 <div class="container-fluid p-5 bg-dark text-center">
+  <img
+      src="serenity logo.png"
+      alt="serenity"
+      style="width: 100px"
+      class="mx-auto d-block">
   <h1 class="text-info">Serenity Dress Rental</h1>
   <h4 class="text-secondary"> (Registration) </h4>
 
@@ -30,11 +62,13 @@
 
         <div class="mb-3">
           <label for="Usrname" class="form-label fw-bold">Username:</label>
-          <input type="username" class="form-control" id="Username" >
+        <h5 class="mb-3">
+          <input type="username" class="form-control" id="Username"></h5>
 
         <div class="mb-3">
           <label for="Emailadd" class="form-label fw-bold">E-mail:</label>
-          <input type="email" class="form-control" id="Email" >
+          <h5 class="mb-3">
+          <input type="email" class="form-control" id="Email" ></h5>
     
         
         <div class="mb-3">
@@ -46,7 +80,7 @@
            
           </div>
           <div class="container mt-3 text-center fw-bold">
-          <button type="button" class="btn btn-info fw-bold" id="Regbtn">REGISTER</button>
+          <button type="button" class="btn btn-info fw-bold" id="Regbtn"  href="inputofdata.html" >REGISTER</button>
           <p class="mt-2 pt-1 mb-3">
             Already Have An Account?
             <a href="index.html" class="link-info">Log In</a>
@@ -91,7 +125,9 @@
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    alert('Registered Successfully');
+          console.log(user);
+          alert("Registered Successfully!");
+          window.location.href = "index.html";
     // ...
   })
   .catch((error) => {
@@ -106,7 +142,7 @@
 
     });
 
-   
+  
 
     
       </script>

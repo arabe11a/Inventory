@@ -10,13 +10,44 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
-    <title>Dress Rental</title>
+
+    <style>
+      body {
+        background-image: url("serenitybg50.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        
+        
+      }
+      h5 {
+        font-family: 'Roboto', sans-serif;
+      }
+      
+    </style>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playball&display=swap" rel="stylesheet">
+
+<style>
+  body {
+font-family: 'Playball', cursive; }
+</style>
+
+    <title>SDR-RentADress </title>
   </head>
   <body>
 
   </div>
 </div>
 <div class="container-fluid p-5 bg-dark text-center">
+  <img
+  src="serenity logo.png"
+  alt="serenity"
+  style="width: 100px"
+  class="mx-auto d-block">
   <h1 class="text-info">Serenity Dress Rental</h1>
   <h4 class="text-secondary"> (Rent A Dress) </h4>
   <div class="">
@@ -37,73 +68,81 @@
     <div class="container">
       <form>
         <div class="mb-3">
-          <label class="form-label fw-bold">Dress ID:</label>
+          <label class="form-label fw-bold">Dress id:</label>
+          <h5 class="mb-3">
           <input
             type="text"
             class="form-control"
             id="Rollbox"
-          />
+          /></h5>
         </div>
         <div class="mb-3">
           <label class="form-label fw-bold">Full Name:</label>
+          <h5 class="mb-3">
           <input
             type="text"
             class="form-control"
             id="Fullnamebox"
-          />
+          /></h5>
         </div>
 
         <div class="mb-3">
           <label class="form-label fw-bold">Address:</label>
+          <h5 class="mb-3">
           <input
             type="text"
             class="form-control"
             id="Addressbox"
-            />
+            /></h5>
         </div>
         <div class="mb-3">
             <label class="form-label fw-bold">Mobile No.</label>
+            <h5 class="mb-3">
             <input
               type="tel"
               class="form-control"
               id="Mobilebox"
               
-            />
+            /></h5>
           </div>
           <div class="mb-3">
             <label class="form-label fw-bold">Color:</label>
+            <h5 class="mb-3">
             <input
               type="text"
               class="form-control"
               id="Colorbox"
-            />
+            /></h5>
             
           </div>
 
         <div class="mb-3">
           <label class="form-label fw-bold">Size:</label>
+          <h5 class="mb-3">
           <input
             type="text"
             class="form-control"
             id="Sizebox"
-          />
+          /></h5>
         </div>
         <div class="mb-3">
           <label class="form-label fw-bold">Date:</label>
+          <h5 class="mb-3">
           <input
             type="text"
             class="form-control"
             id="Datebox"
-          />
+          /></h5>
         </div>
 
           <div class="mb-3">
             <label class="form-label fw-bold">Return By:</label>
+            <h5 class="mb-3">
             <input
               type="text"
               class="form-control"
               id="Returnbybox"
-            />
+            /></h5>
           </div>
         <div class="mb-3">
           <label class="fw-bold">Status:</label> <select id="Statusbox"> 
@@ -116,7 +155,6 @@
           <button type="button" class="btn btn-info fw-bold" id="Insbtn">INSERT</button>
           <button type="button" class="btn btn-info fw-bold" id="Selbtn">SELECT</button>
           <button type="button" class="btn btn-info fw-bold" id="Updbtn">UPDATE</button>
-          <button type="button" class="btn btn-info fw-bold" id="Delbtn">DELETE</button>
           <a  href="view.html" class="btn btn-info fw-bold" id="viewbtn" style="white-space: nowrap"     >
            VIEW ALL DATA</a>
         </div>
@@ -175,8 +213,7 @@
         var insBtn = document.getElementById("Insbtn")
         var selBtn = document.getElementById("Selbtn")
         var updBtn = document.getElementById("Updbtn")
-        var delBtn = document.getElementById("Delbtn")
-
+ 
         // add data function
 
         function InsertData(){
@@ -191,9 +228,11 @@
                 ReturnBy: returnbybox.value,
                 Status: statusbox.value,
 
+                
+
             })
             .then(()=>{
-                alert("data stored succesfully");
+                alert("Data Stored Succesfully!");
             })
             .catch((error)=>{
                 alert("unsuccesful, error" + error)
@@ -224,7 +263,7 @@
               }
           })
           .catch((error)=>{
-              alert("unseccesful, error"+ error);
+              alert("unsuccesful, error"+ error);
           });
       }
 
@@ -245,30 +284,19 @@
 
             })
             .then(()=>{
-                alert("data update succesfully");
+                alert("Data Updated!");
             })
             .catch((error)=>{
                 alert("unsuccesful, error" + error)
             });
         }
 
-        // delete function
 
-        function DeleteData(){
-          remove(ref(db, "DressRental/"+ rollbox.value))
-          .then(()=>{
-              alert("data removed succesfully");
-          })
-          .catch((error)=>{
-              alert("unseccesful, error"+ error);
-          });
-      }
 
         // Aasign event button
         insBtn.addEventListener('click', InsertData);
         selBtn.addEventListener('click', SelectData);
         updBtn.addEventListener('click', UpdateData);
-        delBtn.addEventListener('click', DeleteData);
 
       </script>
 
